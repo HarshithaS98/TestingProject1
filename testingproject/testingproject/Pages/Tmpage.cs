@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace testingproject.Pages
 {
@@ -55,15 +56,15 @@ namespace testingproject.Pages
             goToLastPageButton.Click();
 
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
-
-            if (newCode.Text == "Testproject1")
-            {
-                Console.WriteLine("Time record created successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Time record hasn't been created successfully");
-            }
+            Assert.That(newCode.Text == "Testproject1", "Actual code and expected code do not match");
+            // if (newCode.Text == "Testproject1")
+            //{
+            //  Console.WriteLine("Time record created successfully.");
+            //}
+            //else
+            //{
+            //  Console.WriteLine("Time record hasn't been created successfully");
+            //}
         }
 
         public void EditTM(IWebDriver driver)
