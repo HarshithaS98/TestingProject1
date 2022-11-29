@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
@@ -69,13 +68,25 @@ namespace testingproject.Pages
 
         public void EditTM(IWebDriver driver)
         {
-
-            //edit the newcode which created
-            IWebElement editNewcode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[2]/td[5]/a[1]"));
-            editNewcode.Click();//click on edit button
+            Thread.Sleep(2000);
+            // click go to the late page
+            IWebElement gotothelastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            gotothelastpageButton.Click();
             Thread.Sleep(1500);
+            //going to lastrecord which we created
+            IWebElement findNewrecordCreated = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr{last()]/td[1]"));
+            if (findNewrecordCreated.Text == "Testproject1")
+            {
 
-
+                //edit the newcode which created
+                IWebElement editNewcode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
+                editNewcode.Click();//click on edit button
+                Thread.Sleep(1500);
+            }
+            else
+            {
+                Assert.Fail("record to be edited not found ");
+            }
 
 
             //edit code  in code text box

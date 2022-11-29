@@ -1,14 +1,40 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
+using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using testingproject.Pages;
 namespace testingproject.Utilities
 {
-    public class Commondriver
+    public class CommonDriver
     {
-        public static IWebDriver driver;
+        public IWebDriver driver;
+
+        [OneTimeSetUp]
+        public void loginSteps()
+        {
+            driver = new ChromeDriver();
+            // Login page object initialization and definition
+            loginpage loginpageObj = new loginpage();
+            loginpageObj.loginActions(driver);
+        }
+
+        [OneTimeTearDown]
+        public void CloseTestRun()
+        {
+            driver.Quit();
+        }
+
+
+        [OneTimeTearDown]
+        public void closeTestRun()
+
+        {
+            driver.Quit();
+
+        }
+
+
+
     }
+
 }
