@@ -19,7 +19,7 @@ namespace testingproject.Pages
             createNewButton.Click();
             Thread.Sleep(500);
 
-            //Wait.WaitForElementToExist(driver, "XPath", "//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span", 6);
+            Wait.WaitForElementToExist(driver, "XPath", "//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span", 6);
 
             // select Time in the typecode dropdown
             IWebElement typeCodeDropdown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span"));
@@ -68,7 +68,8 @@ namespace testingproject.Pages
 
         public void EditTM(IWebDriver driver)
         {
-            Thread.Sleep(2000);
+            Wait.WaitToBeVisible(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[1]", 3);
+           
             // click go to the late page
             IWebElement gotothelastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             gotothelastpageButton.Click();
@@ -77,7 +78,7 @@ namespace testingproject.Pages
             IWebElement findNewrecordCreated = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr{last()]/td[1]"));
             if (findNewrecordCreated.Text == "Testproject1")
             {
-
+                Thread.Sleep(1500);
                 //edit the newcode which created
                 IWebElement editNewcode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
                 editNewcode.Click();//click on edit button
@@ -116,11 +117,13 @@ namespace testingproject.Pages
             //save the edited value
             IWebElement saveEditvalue = driver.FindElement(By.Id("SaveButton"));
             saveEditvalue.Click();
-            Thread.Sleep(1500);
+         
+            Wait.WaitToBeVisible(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[1]", 3);
         }
 
         public void DeleteTM(IWebDriver driver)
         {
+            Wait.WaitToBeVisible(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[1]", 3);
             // click go to the late page
             IWebElement gotothelastpageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             gotothelastpageButton.Click();
