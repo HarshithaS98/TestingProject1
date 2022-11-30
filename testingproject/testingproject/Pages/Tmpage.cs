@@ -75,7 +75,7 @@ namespace testingproject.Pages
             gotothelastpageButton.Click();
             Thread.Sleep(1500);
             //going to lastrecord which we created
-            IWebElement findNewrecordCreated = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr{last()]/td[1]"));
+            IWebElement findNewrecordCreated = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
             if (findNewrecordCreated.Text == "Testproject1")
             {
                 Thread.Sleep(1500);

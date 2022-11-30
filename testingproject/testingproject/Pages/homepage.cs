@@ -11,6 +11,7 @@ namespace testingproject.Pages
     {
         public void GoToTMPage(IWebDriver driver)
         {
+            Thread.Sleep(1500);
             //navigate to Time and material page
             IWebElement adminstrationDropbox = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
             adminstrationDropbox.Click();
@@ -35,6 +36,7 @@ namespace testingproject.Pages
         //navigating to employee page
 
         {
+            Thread.Sleep(1500);
             //navigate to empployee page
             IWebElement adminstrationDropbox = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
             adminstrationDropbox.Click();
