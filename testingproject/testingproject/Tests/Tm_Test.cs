@@ -29,7 +29,7 @@ namespace testingproject.Tests
             homePageObj.GoToTMPage(driver);
 
             Tmpage tmPageObj = new Tmpage();
-            tmPageObj.EditTM(driver);
+           // tmPageObj.EditTM(driver);
         }
         [Test , Order(3), Description("check if user can delete the existing data ")]
         public void DeleteTm()
