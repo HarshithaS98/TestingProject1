@@ -14,14 +14,14 @@ Scenario: Create time and materials with valid data
 Scenario Outline: Edit existing time record with valid details
 Given I logged into turnup portal
 When I navigated to time and material page
-And I update '<Description>' on an existing time record
-Then The record should have been updated '<Description>'
+And I update '<Description>','<Code>','<Price>' on an existing time record
+Then The record should have been updated '<Description>','<Code>','<Price>'
 
 Examples:
-| Description  |
-| Time         |
-| Material     |
-| EditedRecord |
+| Description  | Code      | Price |
+| Time         | Harshitha | 10    |
+| Material     | Keyboard  | 200   |
+| EditedRecord | Monitor   | 300   |
 
 
 

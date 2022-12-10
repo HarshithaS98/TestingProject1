@@ -140,6 +140,17 @@ namespace testingproject.Pages
             IWebElement EditedDescription = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[3]"));
             return EditedDescription.Text;
         }
+        public string GetEditedCode(IWebDriver driver)
+        {
+            IWebElement editedCode = driver.FindElement(By.XPath("//*[@id='tmsGrid']/div[3]/table/tbody/tr[last()]/td[1]"));
+            return editedCode.Text;
+        }
+
+        public string GetEditedPrice(IWebDriver driver)
+        {
+            IWebElement editedPrice = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[4]"));
+            return editedPrice.Text;
+        }
         public void DeleteTM(IWebDriver driver)
         {
             Wait.WaitToBeVisible(driver, "XPath", "//*[@id='tmsGrid']/div[3]/table/tbody/tr[1]/td[1]", 3);

@@ -43,22 +43,38 @@ namespace testingproject.StepDefinitions
             Assert.That(newDescription == "Testproject1", "Actual description and expected description do not match");
             Assert.That(newPrice == "$12.00", "Actual price and expeected price do not match.");
         }
-        [When(@"I update '([^']*)' on an existing time record")]
-        public void WhenIUpdateOnAnExistingTimeRecord(string Description)
+        //[When(@"I update '([^']*)' on an existing time record")]
+        //public void WhenIUpdateOnAnExistingTimeRecord(string Description)
+        //{
+        //    Tmpage tmPageObj = new Tmpage();
+        //    tmPageObj.EditTM(driver, Description);
+        //}
+
+        //[Then(@"The record should have been updated '([^']*)'")]
+        //public void ThenTheRecordShouldHaveBeenUpdated(string Description)
+        //{
+        //    Tmpage tmPageObj = new Tmpage();
+
+        //    string editDescription = tmPageObj.GetEditedDescription(driver);
+
+        //    Assert.That(editDescription == Description, "Actual desription and expected description do not match");
+
+        //}
+        [When(@"I update '([^']*)','([^']*)','([^']*)' on an existing time record")]
+        public void WhenIUpdateOnAnExistingTimeRecord(string description, string code, string price)
         {
             Tmpage tmPageObj = new Tmpage();
-            tmPageObj.EditTM(driver, Description);
+            tmPageObj.EditTM(driver, description, code, price);
         }
-
-        [Then(@"The record should have been updated '([^']*)'")]
-        public void ThenTheRecordShouldHaveBeenUpdated(string Description)
+        [Then(@"The record should have the updated '([^']*)', '([^']*)' and '([^']*)'")]
+        public void ThenTheRecordShouldHaveTheUpdatedAnd(string description, string code, string price)
         {
-            Tmpage tmPageObj = new Tmpage();
+            string editedDescription = tmPageObj.GetEditedDescription(driver);
+            string editedCode = tmPageObj.GetEditedCode(driver);
+            string editedPrice = tmPageObj.GetEditedPrice(driver);
 
-            string editDescription = tmPageObj.GetEditedDescription(driver);
-
-            Assert.That(editDescription == Description, "Actual desription and expected description do not match");
-
+            Assert.That(editedDescription == description, "Actual desription and expected description do not match");
+            Assert.That(editedCode == code, "Actual code and expected code do not match");
+            Assert.That(editedPrice == price, "Actual price and expected price do not match");
         }
-    }
 }
