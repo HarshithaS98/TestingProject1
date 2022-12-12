@@ -7,139 +7,42 @@
 	},
 	"item": [
 		{
-			"name": "Get all user data",
+			"name": "Get all employee data",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users?page=2",
-					"protocol": "https",
+					"raw": "{{baseURL}}/api/v1/employees",
 					"host": [
-						"reqres",
-						"in"
+						"{{baseURL}}"
 					],
 					"path": [
 						"api",
-						"users"
-					],
-					"query": [
-						{
-							"key": "page",
-							"value": "2"
-						}
+						"v1",
+						"employees"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get a single user data",
+			"name": "Get a single employee data",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users/12",
+					"raw": "https://dummy.restapiexample.com/api/v1/employee/4",
 					"protocol": "https",
 					"host": [
-						"reqres",
-						"in"
+						"dummy",
+						"restapiexample",
+						"com"
 					],
 					"path": [
 						"api",
-						"users",
-						"12"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create a new user",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Harshitha\",\r\n    \"job\": \"Qa Tester\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://reqres.in/api/users",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update existing user data",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Harshitha\",\r\n    \"job\": \"Automation Engineer\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://reqres.in/api/users/343",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users",
-						"343"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete existing user",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Harshitha\",\r\n    \"job\": \"Automation Engineer\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://reqres.in/api/users/343",
-					"protocol": "https",
-					"host": [
-						"reqres",
-						"in"
-					],
-					"path": [
-						"api",
-						"users",
-						"343"
+						"v1",
+						"employee",
+						"4"
 					]
 				}
 			},
